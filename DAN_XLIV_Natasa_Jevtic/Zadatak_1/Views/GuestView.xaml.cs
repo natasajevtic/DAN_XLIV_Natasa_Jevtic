@@ -8,6 +8,10 @@ namespace Zadatak_1.Views
     /// </summary>
     public partial class GuestView : Window
     {
+        /// <summary>
+        /// Constructor with one parameter.
+        /// </summary>
+        /// <param name="username">Username of guest.</param>
         public GuestView(string username)
         {
             InitializeComponent();

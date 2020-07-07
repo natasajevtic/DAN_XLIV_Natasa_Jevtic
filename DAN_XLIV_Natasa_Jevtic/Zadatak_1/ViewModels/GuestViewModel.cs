@@ -248,8 +248,10 @@ namespace Zadatak_1.ViewModels
             if (newOrder.CheckIfUserOrdered(username) == false)
             {
                 newOrder.CreateOrder(Username);
+                Ordered = newOrder.ViewOrder(Username);
+                totalPrice = Ordered.TotalPrice;
             }
-            //if doesnt have order
+            //if has order
             else
             {
                 IsVisibleMenu = Visibility.Hidden;
@@ -260,9 +262,7 @@ namespace Zadatak_1.ViewModels
                 totalPrice = Ordered.TotalPrice;
                 //running background worker
                 backgroundWorker.RunWorkerAsync();
-            }
-            Ordered = newOrder.ViewOrder(Username);
-            totalPrice = Ordered.TotalPrice;
+            }            
         }
         /// <summary>
         /// This method invokes method for deleting ordered item.

@@ -200,7 +200,8 @@ namespace Zadatak_1.Models
             {
                 using (PizzeriaEntities context = new PizzeriaEntities())
                 {
-                    if (context.tblOrders.Where(x => x.CustomerJMBG == username).ToList() != null)
+                    List<vwOrder> orders = context.vwOrders.Where(x => x.CustomerJMBG == username).ToList();
+                    if (orders.Count()>0)
                     {
                         return true;
                     }

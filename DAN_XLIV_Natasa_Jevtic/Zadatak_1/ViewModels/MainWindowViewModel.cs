@@ -64,7 +64,8 @@ namespace Zadatak_1.ViewModels
         {
             if (Username == "Zaposleni" && Password == "Zaposleni")
             {
-                
+                EmployeeView employee = new EmployeeView();
+                employee.ShowDialog();
             }
             else if (validation.ValidationForJMBG(Username) == true && Password == "Gost")
             {
