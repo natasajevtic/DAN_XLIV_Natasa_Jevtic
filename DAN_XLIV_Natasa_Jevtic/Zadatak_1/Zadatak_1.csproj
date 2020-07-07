@@ -65,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,6 +74,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -84,10 +86,33 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Pizzeria_Model.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Pizzeria_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pizzeria_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Pizzeria_Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Pizzeria_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblMenu.cs">
+      <DependentUpon>Pizzeria_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblOrder.cs">
+      <DependentUpon>Pizzeria_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tblOrderItem.cs">
+      <DependentUpon>Pizzeria_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwMenu.cs">
+      <DependentUpon>Pizzeria_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwOrder.cs">
+      <DependentUpon>Pizzeria_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vwOrderItem.cs">
+      <DependentUpon>Pizzeria_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -126,6 +151,12 @@
     <Content Include="Models\Pizzeria_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Pizzeria_Model.Context.cs</LastGenOutput>
+      <DependentUpon>Pizzeria_Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Pizzeria_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Pizzeria_Model.edmx</DependentUpon>
+      <LastGenOutput>Pizzeria_Model.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
