@@ -18,7 +18,7 @@
             <PropertyRef Name="OrderID" />
           </Key>
           <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DateAndTimeOfOrder" Type="date" Nullable="false" />
+          <Property Name="DateAndTimeOfOrder" Type="smalldatetime" Nullable="false" />
           <Property Name="TotalPrice" Type="int" Nullable="false" />
           <Property Name="CustomerJMBG" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="OrderStatus" Type="varchar" MaxLength="10" Nullable="false" />
@@ -55,7 +55,7 @@ warning 6002: The table/view 'Pizzeria.dbo.vwOrder' does not have a primary key 
             <PropertyRef Name="OrderStatus" />
           </Key>
           <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DateAndTimeOfOrder" Type="date" Nullable="false" />
+          <Property Name="DateAndTimeOfOrder" Type="smalldatetime" Nullable="false" />
           <Property Name="TotalPrice" Type="int" Nullable="false" />
           <Property Name="CustomerJMBG" Type="varchar" MaxLength="13" Nullable="false" />
           <Property Name="OrderStatus" Type="varchar" MaxLength="10" Nullable="false" />
@@ -82,7 +82,7 @@ warning 6002: The table/view 'Pizzeria.dbo.vwOrderItem' does not have a primary 
           <Property Name="TotalPrice" Type="int" Nullable="false" />
           <Property Name="CustomerJMBG" Type="varchar" MaxLength="13" Nullable="false" />
         </EntityType>
-        <Association Name="FK__tblOrderI__FoodI__6E01572D">
+        <Association Name="FK__tblOrderI__FoodI__7F2BE32F">
           <End Role="tblMenu" Type="Self.tblMenu" Multiplicity="1" />
           <End Role="tblOrderItem" Type="Self.tblOrderItem" Multiplicity="*" />
           <ReferentialConstraint>
@@ -94,7 +94,7 @@ warning 6002: The table/view 'Pizzeria.dbo.vwOrderItem' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblOrderI__Order__6EF57B66">
+        <Association Name="FK__tblOrderI__Order__00200768">
           <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="1" />
           <End Role="tblOrderItem" Type="Self.tblOrderItem" Multiplicity="*" />
           <ReferentialConstraint>
@@ -138,11 +138,11 @@ warning 6002: The table/view 'Pizzeria.dbo.vwOrderItem' does not have a primary 
     [vwOrderItem].[CustomerJMBG] AS [CustomerJMBG]
     FROM [dbo].[vwOrderItem] AS [vwOrderItem]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__tblOrderI__FoodI__6E01572D" Association="Self.FK__tblOrderI__FoodI__6E01572D">
+          <AssociationSet Name="FK__tblOrderI__FoodI__7F2BE32F" Association="Self.FK__tblOrderI__FoodI__7F2BE32F">
             <End Role="tblMenu" EntitySet="tblMenu" />
             <End Role="tblOrderItem" EntitySet="tblOrderItem" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblOrderI__Order__6EF57B66" Association="Self.FK__tblOrderI__Order__6EF57B66">
+          <AssociationSet Name="FK__tblOrderI__Order__00200768" Association="Self.FK__tblOrderI__Order__00200768">
             <End Role="tblOrder" EntitySet="tblOrder" />
             <End Role="tblOrderItem" EntitySet="tblOrderItem" />
           </AssociationSet>
@@ -159,7 +159,7 @@ warning 6002: The table/view 'Pizzeria.dbo.vwOrderItem' does not have a primary 
           <Property Name="FoodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FoodName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Price" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblOrderItems" Relationship="Self.FK__tblOrderI__FoodI__6E01572D" FromRole="tblMenu" ToRole="tblOrderItem" />
+          <NavigationProperty Name="tblOrderItems" Relationship="Self.FK__tblOrderI__FoodI__7F2BE32F" FromRole="tblMenu" ToRole="tblOrderItem" />
         </EntityType>
         <EntityType Name="tblOrder">
           <Key>
@@ -170,7 +170,7 @@ warning 6002: The table/view 'Pizzeria.dbo.vwOrderItem' does not have a primary 
           <Property Name="TotalPrice" Type="Int32" Nullable="false" />
           <Property Name="CustomerJMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="OrderStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="tblOrderItems" Relationship="Self.FK__tblOrderI__Order__6EF57B66" FromRole="tblOrder" ToRole="tblOrderItem" />
+          <NavigationProperty Name="tblOrderItems" Relationship="Self.FK__tblOrderI__Order__00200768" FromRole="tblOrder" ToRole="tblOrderItem" />
         </EntityType>
         <EntityType Name="tblOrderItem">
           <Key>
@@ -180,8 +180,8 @@ warning 6002: The table/view 'Pizzeria.dbo.vwOrderItem' does not have a primary 
           <Property Name="FoodID" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="OrderID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblMenu" Relationship="Self.FK__tblOrderI__FoodI__6E01572D" FromRole="tblOrderItem" ToRole="tblMenu" />
-          <NavigationProperty Name="tblOrder" Relationship="Self.FK__tblOrderI__Order__6EF57B66" FromRole="tblOrderItem" ToRole="tblOrder" />
+          <NavigationProperty Name="tblMenu" Relationship="Self.FK__tblOrderI__FoodI__7F2BE32F" FromRole="tblOrderItem" ToRole="tblMenu" />
+          <NavigationProperty Name="tblOrder" Relationship="Self.FK__tblOrderI__Order__00200768" FromRole="tblOrderItem" ToRole="tblOrder" />
         </EntityType>
         <EntityType Name="vwMenu">
           <Key>
@@ -227,7 +227,7 @@ warning 6002: The table/view 'Pizzeria.dbo.vwOrderItem' does not have a primary 
           <Property Name="TotalPrice" Type="Int32" Nullable="false" />
           <Property Name="CustomerJMBG" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <Association Name="FK__tblOrderI__FoodI__6E01572D">
+        <Association Name="FK__tblOrderI__FoodI__7F2BE32F">
           <End Role="tblMenu" Type="Self.tblMenu" Multiplicity="1" />
           <End Role="tblOrderItem" Type="Self.tblOrderItem" Multiplicity="*" />
           <ReferentialConstraint>
@@ -239,7 +239,7 @@ warning 6002: The table/view 'Pizzeria.dbo.vwOrderItem' does not have a primary 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblOrderI__Order__6EF57B66">
+        <Association Name="FK__tblOrderI__Order__00200768">
           <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="1" />
           <End Role="tblOrderItem" Type="Self.tblOrderItem" Multiplicity="*" />
           <ReferentialConstraint>
@@ -258,11 +258,11 @@ warning 6002: The table/view 'Pizzeria.dbo.vwOrderItem' does not have a primary 
           <EntitySet Name="vwMenus" EntityType="Self.vwMenu" />
           <EntitySet Name="vwOrders" EntityType="Self.vwOrder" />
           <EntitySet Name="vwOrderItems" EntityType="Self.vwOrderItem" />
-          <AssociationSet Name="FK__tblOrderI__FoodI__6E01572D" Association="Self.FK__tblOrderI__FoodI__6E01572D">
+          <AssociationSet Name="FK__tblOrderI__FoodI__7F2BE32F" Association="Self.FK__tblOrderI__FoodI__7F2BE32F">
             <End Role="tblMenu" EntitySet="tblMenus" />
             <End Role="tblOrderItem" EntitySet="tblOrderItems" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblOrderI__Order__6EF57B66" Association="Self.FK__tblOrderI__Order__6EF57B66">
+          <AssociationSet Name="FK__tblOrderI__Order__00200768" Association="Self.FK__tblOrderI__Order__00200768">
             <End Role="tblOrder" EntitySet="tblOrders" />
             <End Role="tblOrderItem" EntitySet="tblOrderItems" />
           </AssociationSet>

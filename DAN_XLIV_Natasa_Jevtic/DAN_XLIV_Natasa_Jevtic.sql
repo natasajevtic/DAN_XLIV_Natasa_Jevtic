@@ -25,7 +25,7 @@ Price int NOT NULL
 --Creating a table of orders
 create table tblOrder(
 OrderID int IDENTITY(1,1) PRIMARY KEY,
-DateAndTimeOfOrder date NOT NULL,
+DateAndTimeOfOrder smalldatetime NOT NULL,
 TotalPrice int NOT NULL,
 CustomerJMBG varchar(13) NOT NULL,
 OrderStatus varchar(10) NOT NULL,
