@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 using Zadatak_1.Commands;
 using Zadatak_1.Validations;
+using Zadatak_1.Views;
 
 namespace Zadatak_1.ViewModels
 {
@@ -67,7 +68,8 @@ namespace Zadatak_1.ViewModels
             }
             else if (validation.ValidationForJMBG(Username) == true && Password == "Gost")
             {
-                
+                GuestView guestView = new GuestView(Username);
+                guestView.ShowDialog();
             }            
         }
 
